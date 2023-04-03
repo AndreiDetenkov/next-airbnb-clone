@@ -1,6 +1,6 @@
-import { Container } from '@/app/components/Container';
-import { Logo } from '@/app/components/navbar/Logo';
-import { Search } from '@/app/components/navbar/Search';
+import { Container } from '@/app/components/Container'
+import { Logo } from '@/app/components/navbar/Logo'
+import { Search } from '@/app/components/navbar/Search'
 
 export const Navbar = (): JSX.Element => {
   return (
@@ -14,5 +14,5 @@ export const Navbar = (): JSX.Element => {
         </Container>
       </div>
     </div>
-  );
-};
+  )
+}

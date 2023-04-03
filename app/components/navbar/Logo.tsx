@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 export const Logo = (): JSX.Element => {
-  const router: AppRouterInstance = useRouter();
+  const router: AppRouterInstance = useRouter()
 
   return (
     <Image
@@ -16,5 +16,5 @@ export const Logo = (): JSX.Element => {
       src="/images/logo.png"
       onClick={() => router.push('/')}
     />
-  );
-};
+  )
+}
