@@ -1,27 +1,24 @@
-'use client'
+'use client';
 
-import {BiSearch} from "react-icons/bi";
+import { BiSearch } from 'react-icons/bi';
 
 export const Search = (): JSX.Element => {
   return (
-    <div className="border-[1px] w-full md:w-auto py-2 rounded-full shadow-sm hover:shadow-md transition cursor-pointer">
+    <div className="w-full cursor-pointer rounded-full border-[1px] py-2 shadow-sm transition hover:shadow-md md:w-auto">
       <div className="flex flex-row items-center justify-center">
-        <div className="text-sm forn-semibold px-6">
-          Anywhere
-        </div>
+        <div className="forn-semibold px-6 text-sm">Anywhere</div>
 
-        <div className="hidden sm:block text-sm forn-semibold px-6 border-x-[1px] flex-1 text-center">
+        <div className="forn-semibold hidden flex-1 border-x-[1px] px-6 text-center text-sm sm:block">
           AnyWeek
         </div>
 
-        <div className="text-sm pl-6 pr-2 text-gray-600 flex flex-row items-center gap-3">
+        <div className="flex flex-row items-center gap-3 pl-6 pr-2 text-sm text-gray-600">
           <div className="hidden sm:block">Add Guests</div>
-          <div className="p-2 bg-rose-500 rounded-full text-white">
-            <BiSearch/>
+          <div className="rounded-full bg-rose-500 p-2 text-white">
+            <BiSearch />
           </div>
         </div>
       </div>
     </div>
   );
 };
-

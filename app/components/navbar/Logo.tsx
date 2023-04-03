@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import {AppRouterInstance} from "next/dist/shared/lib/app-router-context";
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export const Logo = (): JSX.Element => {
   const router: AppRouterInstance = useRouter();
@@ -10,11 +10,11 @@ export const Logo = (): JSX.Element => {
   return (
     <Image
       alt="Logo"
-      className="hidden md:block cursor-pointer"
+      className="hidden cursor-pointer md:block"
       height="100"
       width="100"
       src="/images/logo.png"
-      onClick={() => router.push("/")}
+      onClick={() => router.push('/')}
     />
   );
 };
