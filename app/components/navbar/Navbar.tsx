@@ -1,5 +1,6 @@
-import { Container } from "../Container";
-import { Logo } from "./Logo";
+import {Logo} from "@/app/components/navbar/Logo";
+import {Search} from "@/app/components/navbar/Search";
+import {Container} from "@/app/components/Container";
 
 export const Navbar = (): JSX.Element => {
   return (
@@ -8,6 +9,7 @@ export const Navbar = (): JSX.Element => {
         <Container>
           <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
             <Logo />
+            <Search />
           </div>
         </Container>
       </div>
