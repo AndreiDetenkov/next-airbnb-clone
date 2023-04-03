@@ -1,10 +1,12 @@
 "use client";
 
+import {FC, ReactNode} from "react";
+
 interface ContainerProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-export const Container: React.FC<ContainerProps> = ({
+export const Container: FC<ContainerProps> = ({
   children,
 }): JSX.Element => {
   return (
