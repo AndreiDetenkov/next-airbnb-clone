@@ -30,7 +30,7 @@ export const Input: FC<InputProps> = ({
       {formatPrice && (
         <BiDollar
           size={24}
-          className="absolute left-2 top-1.5 text-neutral-700"
+          className="absolute left-2 top-5 text-neutral-700"
         />
       )}
       <input
@@ -43,7 +43,7 @@ export const Input: FC<InputProps> = ({
           peer
           w-full
           rounded-md
-          border-2 
+          border-[1px] 
           bg-white 
           p-4 
           pt-6
