@@ -16,6 +16,7 @@ interface ModalProps {
   secondaryAction?: () => void
   secondaryActionLabel?: string
 }
+
 export const Modal: FC<ModalProps> = ({
   isOpen,
   disabled,

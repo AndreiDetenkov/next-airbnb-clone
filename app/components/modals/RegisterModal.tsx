@@ -24,18 +24,18 @@ export const RegisterModal: FC = (): JSX.Element => {
     },
   })
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = (data): void => {
     setIsLoading(true)
 
     axios
       .post('/api/register', data)
-      .then(() => {
+      .then((): void => {
         registerModal.onClose()
       })
-      .catch((error) => {
+      .catch((error): void => {
         console.log(error)
       })
-      .finally(() => {
+      .finally((): void => {
         setIsLoading(false)
       })
   }
@@ -55,6 +55,7 @@ export const RegisterModal: FC = (): JSX.Element => {
       <Input
         id="name"
         label="Name"
+        type="text"
         disabled={isLoading}
         register={register}
         errors={errors}

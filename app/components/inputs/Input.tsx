@@ -24,7 +24,7 @@ export const Input: FC<InputProps> = ({
   required,
   register,
   errors,
-}) => {
+}): JSX.Element => {
   return (
     <div className="relative w-full">
       {formatPrice && (
