@@ -1,5 +1,6 @@
 import { ClientOnly } from '@/app/components/ClientOnly'
 import { RegisterModal } from '@/app/components/modals/RegisterModal'
+import { ToasterProvider } from '@/app/providers/ToarserProvider'
 import { NextFont } from 'next/dist/compiled/@next/font'
 import { Nunito } from 'next/font/google'
 import { ReactNode } from 'react'
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en">
       <body className={font.className}>
         <ClientOnly>
+          <ToasterProvider />
           <Navbar />
           <RegisterModal />
         </ClientOnly>

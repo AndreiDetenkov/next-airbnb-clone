@@ -7,6 +7,7 @@ import { useRegisterModal } from '@/app/hooks/useRegisterModal'
 import axios from 'axios'
 import { FC, useState } from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 
 export const RegisterModal: FC = (): JSX.Element => {
   const registerModal = useRegisterModal()
@@ -26,14 +27,13 @@ export const RegisterModal: FC = (): JSX.Element => {
 
   const onSubmit: SubmitHandler<FieldValues> = (data): void => {
     setIsLoading(true)
-
     axios
       .post('/api/register', data)
       .then((): void => {
         registerModal.onClose()
       })
       .catch((error): void => {
-        console.log(error)
+        toast.error('Something went wrong')
       })
       .finally((): void => {
         setIsLoading(false)
