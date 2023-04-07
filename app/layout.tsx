@@ -13,6 +13,7 @@ export const metadata = {
 
 const font: NextFont = Nunito({
   subsets: ['latin'],
+  weight: '400',
 })
 
 export default function RootLayout({ children }: { children: ReactNode }) {
