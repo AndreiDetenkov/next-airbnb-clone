@@ -22,6 +22,7 @@ export const Modal: FC<ModalProps> = ({
   disabled,
   title,
   body,
+  footer,
   actionLabel,
   onClose,
   onSubmit,
@@ -108,6 +109,7 @@ export const Modal: FC<ModalProps> = ({
                     onClick={handleSubmit}
                   />
                 </div>
+                {footer}
               </div>
             </div>
           </div>

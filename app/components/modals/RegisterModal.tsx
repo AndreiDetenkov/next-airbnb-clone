@@ -1,5 +1,6 @@
 'use client'
 
+import { Button } from '@/app/components/Button'
 import { Heading } from '@/app/components/Heading'
 import { Input } from '@/app/components/inputs/Input'
 import { Modal } from '@/app/components/modals/Modal'
@@ -8,6 +9,8 @@ import axios from 'axios'
 import { FC, useState } from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
+import { AiFillGithub } from 'react-icons/ai'
+import { FcGoogle } from 'react-icons/fc'
 
 export const RegisterModal: FC = (): JSX.Element => {
   const registerModal = useRegisterModal()
@@ -73,6 +76,35 @@ export const RegisterModal: FC = (): JSX.Element => {
     </div>
   )
 
+  const footerContent: JSX.Element = (
+    <div className="mt-3 flex flex-col gap-4">
+      <hr />
+      <Button
+        outline
+        label="Continue with Google"
+        icon={FcGoogle}
+        onClick={() => {}}
+      />
+      <Button
+        outline
+        label="Continue with Github"
+        icon={AiFillGithub}
+        onClick={() => {}}
+      />
+      <div className="mt-4 text-center font-light text-neutral-500">
+        <div className="flex flex-row justify-center gap-2">
+          <div>Already have an account?</div>
+          <div
+            onClick={registerModal.onClose}
+            className="cursor-pointer text-neutral-800 hover:underline"
+          >
+            Log in
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <Modal
       disabled={isLoading}
@@ -82,6 +114,7 @@ export const RegisterModal: FC = (): JSX.Element => {
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}
+      footer={footerContent}
     />
   )
 }
