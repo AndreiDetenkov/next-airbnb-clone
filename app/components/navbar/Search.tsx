@@ -1,8 +1,9 @@
 'use client'
 
+import { FC } from 'react'
 import { BiSearch } from 'react-icons/bi'
 
-export const Search = (): JSX.Element => {
+export const Search: FC = (): JSX.Element => {
   return (
     <div className="w-full cursor-pointer rounded-full border-[1px] py-2 shadow-sm transition hover:shadow-md md:w-auto">
       <div className="flex flex-row items-center justify-between">

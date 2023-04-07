@@ -4,8 +4,9 @@ import { Container } from '@/app/components/Container'
 import { Logo } from '@/app/components/navbar/Logo'
 import { Search } from '@/app/components/navbar/Search'
 import { UserMenu } from '@/app/components/navbar/UserMenu'
+import { FC } from 'react'
 
-export const Navbar = (): JSX.Element => {
+export const Navbar: FC = (): JSX.Element => {
   return (
     <div className="fixed w-full bg-white shadow-sm">
       <div className="border-b-[1px] py-4">

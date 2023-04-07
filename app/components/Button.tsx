@@ -18,7 +18,7 @@ export const Button: FC<ButtonProps> = ({
   icon: Icon,
   disabled,
   onClick,
-}) => {
+}): JSX.Element => {
   return (
     <button
       onClick={onClick}

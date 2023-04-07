@@ -3,8 +3,9 @@
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { FC } from 'react'
 
-export const Logo = (): JSX.Element => {
+export const Logo: FC = (): JSX.Element => {
   const router: AppRouterInstance = useRouter()
 
   return (

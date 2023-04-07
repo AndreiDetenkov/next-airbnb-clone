@@ -3,10 +3,10 @@
 import Avatar from '@/app/components/Avatar'
 import { MenuItem } from '@/app/components/navbar/MenuItem'
 import { useRegisterModal } from '@/app/hooks/useRegisterModal'
-import { useCallback, useState } from 'react'
+import { FC, useCallback, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 
-export const UserMenu = () => {
+export const UserMenu: FC = (): JSX.Element => {
   const registerModal = useRegisterModal()
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
