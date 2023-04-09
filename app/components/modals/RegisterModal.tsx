@@ -28,7 +28,7 @@ export const RegisterModal: FC = (): JSX.Element => {
     },
   })
 
-  const onSubmit: SubmitHandler<FieldValues> = (data): void => {
+  const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues): void => {
     setIsLoading(true)
     axios
       .post('/api/register', data)
