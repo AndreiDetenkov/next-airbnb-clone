@@ -2,12 +2,14 @@
 
 import Avatar from '@/app/components/Avatar'
 import { MenuItem } from '@/app/components/navbar/MenuItem'
+import { useLoginModal } from '@/app/hooks/useLoginModal'
 import { useRegisterModal } from '@/app/hooks/useRegisterModal'
 import { FC, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 
 export const UserMenu: FC = (): JSX.Element => {
   const registerModal = useRegisterModal()
+  const loginModal = useLoginModal()
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   const toggleOpen = (): void => {
@@ -16,6 +18,11 @@ export const UserMenu: FC = (): JSX.Element => {
 
   const registerModalOpen = (): void => {
     registerModal.onOpen()
+    toggleOpen()
+  }
+
+  const loginModalOpen = (): void => {
+    loginModal.onOpen()
     toggleOpen()
   }
 
@@ -81,7 +88,7 @@ export const UserMenu: FC = (): JSX.Element => {
           <div className="flex cursor-pointer flex-col">
             <>
               <MenuItem onClick={registerModalOpen} label="Sign up" />
-              <MenuItem onClick={() => {}} label="Login" />
+              <MenuItem onClick={loginModalOpen} label="Login" />
             </>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { ClientOnly } from '@/app/components/ClientOnly'
+import { LoginModal } from '@/app/components/modals/LoginModal'
 import { RegisterModal } from '@/app/components/modals/RegisterModal'
 import { ToasterProvider } from '@/app/providers/ToarserProvider'
 import { NextFont } from 'next/dist/compiled/@next/font'
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <ToasterProvider />
           <Navbar />
           <RegisterModal />
+          <LoginModal />
         </ClientOnly>
         {children}
       </body>
