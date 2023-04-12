@@ -3,7 +3,6 @@ import { ClientOnly } from '@/app/components/ClientOnly'
 import { LoginModal } from '@/app/components/modals/LoginModal'
 import { RegisterModal } from '@/app/components/modals/RegisterModal'
 import { ToasterProvider } from '@/app/providers/ToarserProvider'
-import { User } from '@prisma/client'
 import { NextFont } from 'next/dist/compiled/@next/font'
 import { Nunito } from 'next/font/google'
 import { ReactNode } from 'react'
@@ -25,7 +24,7 @@ export default async function RootLayout({
 }: {
   children: ReactNode
 }): Promise<JSX.Element> {
-  const currentUser: User | null = await getCurrentUser()
+  const currentUser = await getCurrentUser()
 
   return (
     <html lang="en">
