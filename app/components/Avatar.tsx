@@ -3,7 +3,11 @@
 import Image from 'next/image'
 import { FC } from 'react'
 
-const Avatar: FC = (): JSX.Element => {
+interface avatarProps {
+  src: string | undefined | null
+}
+
+const Avatar: FC<avatarProps> = ({ src }): JSX.Element => {
   return (
     <Image
       className="rounded-full"
@@ -11,7 +15,7 @@ const Avatar: FC = (): JSX.Element => {
       width={30}
       style={{ width: 'auto', height: 'auto' }}
       alt="Avatar"
-      src="/images/placeholder.jpg"
+      src={src || '/images/placeholder.jpg'}
     />
   )
 }
