@@ -7,11 +7,7 @@ interface HeadingProps {
   subtitle?: string
   center?: boolean
 }
-export const Heading: FC<HeadingProps> = ({
-  title,
-  subtitle,
-  center,
-}): JSX.Element => {
+export const Heading: FC<HeadingProps> = ({ title, subtitle, center }): JSX.Element => {
   return (
     <div className={center ? 'text-center' : 'text-start'}>
       <div className="text-2xl font-bold">{title}</div>

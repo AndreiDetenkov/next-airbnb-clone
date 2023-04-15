@@ -6,15 +6,9 @@ interface MenuItemProps {
   onClick: () => void
   label: string
 }
-export const MenuItem: FC<MenuItemProps> = ({
-  onClick,
-  label,
-}): JSX.Element => {
+export const MenuItem: FC<MenuItemProps> = ({ onClick, label }): JSX.Element => {
   return (
-    <div
-      onClick={onClick}
-      className="px-4 py-3 font-semibold transition hover:bg-neutral-100"
-    >
+    <div onClick={onClick} className="px-4 py-3 font-semibold transition hover:bg-neutral-100">
       {label}
     </div>
   )

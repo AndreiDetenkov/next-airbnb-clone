@@ -48,21 +48,21 @@ export const LoginModal: FC = () => {
   }
 
   const bodyContent: JSX.Element = (
-    <div className='flex flex-col gap-4'>
-      <Heading title='Welcome back' subtitle='Login to your account' />
+    <div className="flex flex-col gap-4">
+      <Heading title="Welcome back" subtitle="Login to your account" />
       <Input
-        id='email'
-        label='Email'
-        type='email'
+        id="email"
+        label="Email"
+        type="email"
         disabled={isLoading}
         register={register}
         errors={errors}
         required
       />
       <Input
-        id='password'
-        label='Password'
-        type='password'
+        id="password"
+        label="Password"
+        type="password"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -72,26 +72,21 @@ export const LoginModal: FC = () => {
   )
 
   const footerContent: JSX.Element = (
-    <div className='mt-3 flex flex-col gap-4'>
+    <div className="mt-3 flex flex-col gap-4">
       <hr />
+      <Button outline label="Login with Google" icon={FcGoogle} onClick={() => signIn('google')} />
       <Button
         outline
-        label='Login with Google'
-        icon={FcGoogle}
-        onClick={() => signIn('google')}
-      />
-      <Button
-        outline
-        label='Login with Github'
+        label="Login with Github"
         icon={AiFillGithub}
         onClick={() => signIn('github')}
       />
-      <div className='mt-4 text-center font-light text-neutral-500'>
-        <div className='flex flex-row justify-center gap-2'>
+      <div className="mt-4 text-center font-light text-neutral-500">
+        <div className="flex flex-row justify-center gap-2">
           <div>Have not an account?</div>
           <div
             onClick={loginModal.onClose}
-            className='cursor-pointer text-neutral-800 hover:underline'
+            className="cursor-pointer text-neutral-800 hover:underline"
           >
             Log in
           </div>
@@ -104,8 +99,8 @@ export const LoginModal: FC = () => {
     <Modal
       disabled={isLoading}
       isOpen={loginModal.isOpen}
-      title='Login'
-      actionLabel='Continue'
+      title="Login"
+      actionLabel="Continue"
       onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}

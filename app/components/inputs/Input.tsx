@@ -27,12 +27,7 @@ export const Input: FC<InputProps> = ({
 }): JSX.Element => {
   return (
     <div className="relative w-full">
-      {formatPrice && (
-        <BiDollar
-          size={24}
-          className="absolute left-2 top-5 text-neutral-700"
-        />
-      )}
+      {formatPrice && <BiDollar size={24} className="absolute left-2 top-5 text-neutral-700" />}
       <input
         id={id}
         disabled={disabled}

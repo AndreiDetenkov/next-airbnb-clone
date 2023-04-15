@@ -60,7 +60,7 @@ export const Modal: FC<ModalProps> = ({
     }
 
     secondaryAction()
-  }, [disabled])
+  }, [disabled, secondaryAction])
 
   if (!isOpen) {
     return null
@@ -103,11 +103,7 @@ export const Modal: FC<ModalProps> = ({
                       onClick={handleSecondaryAction}
                     />
                   )}
-                  <Button
-                    disabled={disabled}
-                    label={actionLabel}
-                    onClick={handleSubmit}
-                  />
+                  <Button disabled={disabled} label={actionLabel} onClick={handleSubmit} />
                 </div>
                 {footer}
               </div>
