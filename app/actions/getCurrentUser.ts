@@ -20,8 +20,6 @@ export default async function getCurrentUser() {
       where: { email: session.user.email as string },
     })
 
-    console.log('current user: ', currentUser)
-
     if (!currentUser) {
       return null
     }
