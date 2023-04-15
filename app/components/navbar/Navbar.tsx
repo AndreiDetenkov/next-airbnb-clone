@@ -1,7 +1,8 @@
 'use client'
 
 import { Container } from '@/app/components/Container'
-import { Categories } from '@/app/components/navbar/Categories'
+import { Categories } from '@/app/components/categories/Categories'
+import { categoriesList } from '@/app/components/categories/categoriesList'
 import { Logo } from '@/app/components/navbar/Logo'
 import { Search } from '@/app/components/navbar/Search'
 import { UserMenu } from '@/app/components/navbar/UserMenu'
@@ -25,7 +26,7 @@ export const Navbar: FC<NavbarProps> = ({ currentUser }): JSX.Element => {
         </Container>
       </div>
 
-      <Categories />
+      <Categories categoriesList={categoriesList} />
     </div>
   )
 }
