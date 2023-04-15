@@ -4,10 +4,11 @@ import { Button } from '@/app/components/Button'
 import { Heading } from '@/app/components/Heading'
 import { Input } from '@/app/components/inputs/Input'
 import { Modal } from '@/app/components/modals/Modal'
+import { useLoginModal } from '@/app/hooks/useLoginModal'
 import { useRegisterModal } from '@/app/hooks/useRegisterModal'
 import axios from 'axios'
 import { signIn } from 'next-auth/react'
-import { FC, useState } from 'react'
+import { FC, useCallback, useState } from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import { AiFillGithub } from 'react-icons/ai'
@@ -15,6 +16,8 @@ import { FcGoogle } from 'react-icons/fc'
 
 export const RegisterModal: FC = (): JSX.Element => {
   const registerModal = useRegisterModal()
+  const loginModal = useLoginModal()
+
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const {
@@ -43,6 +46,11 @@ export const RegisterModal: FC = (): JSX.Element => {
         setIsLoading(false)
       })
   }
+
+  const toggle = useCallback((): void => {
+    registerModal.onClose()
+    loginModal.onOpen()
+  }, [loginModal, registerModal])
 
   const bodyContent: JSX.Element = (
     <div className="flex flex-col gap-4">
@@ -95,10 +103,7 @@ export const RegisterModal: FC = (): JSX.Element => {
       <div className="mt-4 text-center font-light text-neutral-500">
         <div className="flex flex-row justify-center gap-2">
           <div>Already have an account?</div>
-          <div
-            onClick={registerModal.onClose}
-            className="cursor-pointer text-neutral-800 hover:underline"
-          >
+          <div onClick={toggle} className="cursor-pointer text-neutral-800 hover:underline">
             Log in
           </div>
         </div>

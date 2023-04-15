@@ -6,7 +6,7 @@ import { useLoginModal } from '@/app/hooks/useLoginModal'
 import { useRegisterModal } from '@/app/hooks/useRegisterModal'
 import { SafeUser } from '@/app/types'
 import { signOut } from 'next-auth/react'
-import { FC, useState } from 'react'
+import { FC, useCallback, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 
 interface UserMenuProps {
@@ -22,15 +22,15 @@ export const UserMenu: FC<UserMenuProps> = ({ currentUser }): JSX.Element => {
     setIsOpen((value: boolean) => !value)
   }
 
-  const registerModalOpen = (): void => {
+  const registerModalOpen = useCallback((): void => {
     registerModal.onOpen()
     toggleOpen()
-  }
+  }, [registerModal])
 
-  const loginModalOpen = (): void => {
+  const loginModalOpen = useCallback((): void => {
     loginModal.onOpen()
     toggleOpen()
-  }
+  }, [loginModal])
 
   return (
     <div className="relative">
