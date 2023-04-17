@@ -28,7 +28,7 @@ export const Categories: FC<CategoriesProps> = ({ categoriesList }): JSX.Element
           flex-row
           items-center
           justify-between
-          overflow-x-auto
+          overflow-x-scroll
           pt-1"
       >
         {categoriesList.map(({ label, icon }) => (

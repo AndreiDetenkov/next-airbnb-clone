@@ -2,6 +2,7 @@ import getCurrentUser from '@/app/actions/getCurrentUser'
 import { ClientOnly } from '@/app/components/ClientOnly'
 import { LoginModal } from '@/app/components/modals/LoginModal'
 import { RegisterModal } from '@/app/components/modals/RegisterModal'
+import { RentModal } from '@/app/components/modals/RentModal'
 import { ToasterProvider } from '@/app/providers/ToarserProvider'
 import { NextFont } from 'next/dist/compiled/@next/font'
 import { Nunito } from 'next/font/google'
@@ -34,6 +35,7 @@ export default async function RootLayout({
           <Navbar currentUser={currentUser} />
           <RegisterModal />
           <LoginModal />
+          <RentModal />
         </ClientOnly>
         {children}
       </body>
