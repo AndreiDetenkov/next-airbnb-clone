@@ -6,6 +6,8 @@ import { categoriesList } from '@/app/components/categories/categoriesList'
 import { CountrySelect, CountrySelectValue } from '@/app/components/inputs/CountrySelect'
 import { Modal } from '@/app/components/modals/Modal'
 import { useRentModal } from '@/app/hooks/useRentModal'
+
+import dynamic from 'next/dynamic'
 import { useMemo, useState } from 'react'
 import { FieldValues, useForm } from 'react-hook-form'
 
@@ -46,6 +48,14 @@ export const RentModal = () => {
 
   const category = watch('category')
   const location = watch('location')
+
+  const Map = useMemo(
+    () =>
+      dynamic(() => import('../Map'), {
+        ssr: false,
+      }),
+    [location]
+  )
 
   const setCustomValue = (id: string, value: any): void => {
     setValue(id, value, {
@@ -103,6 +113,7 @@ export const RentModal = () => {
           value={location}
           onChange={(value: CountrySelectValue) => setCustomValue('location', value)}
         />
+        <Map center={location?.latlng} />
       </div>
     )
   }
