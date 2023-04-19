@@ -3,6 +3,7 @@
 import { Heading } from '@/app/components/Heading'
 import { CategoryInput } from '@/app/components/categories/CategoryInput'
 import { categoriesList } from '@/app/components/categories/categoriesList'
+import { CountrySelect, CountrySelectValue } from '@/app/components/inputs/CountrySelect'
 import { Modal } from '@/app/components/modals/Modal'
 import { useRentModal } from '@/app/hooks/useRentModal'
 import { useMemo, useState } from 'react'
@@ -44,8 +45,9 @@ export const RentModal = () => {
   })
 
   const category = watch('category')
+  const location = watch('location')
 
-  const setCustomValue = (id: string, value: string): void => {
+  const setCustomValue = (id: string, value: any): void => {
     setValue(id, value, {
       shouldValidate: true,
       shouldDirty: true,
@@ -93,11 +95,23 @@ export const RentModal = () => {
     </div>
   )
 
+  if (step === STEPS.LOCATION) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading title="Where is your palce located?" subtitle="Help guests find you!" />
+        <CountrySelect
+          value={location}
+          onChange={(value: CountrySelectValue) => setCustomValue('location', value)}
+        />
+      </div>
+    )
+  }
+
   return (
     <Modal
       isOpen={rentModal.isOpen}
       onClose={rentModal.onClose}
-      onSubmit={rentModal.onClose}
+      onSubmit={onNext}
       actionLabel={actionLabel}
       secondaryActionLabel={secondaryActionLabel}
       secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
