@@ -3,6 +3,7 @@
 import { Heading } from '@/app/components/Heading'
 import { CategoryInput } from '@/app/components/categories/CategoryInput'
 import { categoriesList } from '@/app/components/categories/categoriesList'
+import { Counter } from '@/app/components/inputs/Counter'
 import { CountrySelect, CountrySelectValue } from '@/app/components/inputs/CountrySelect'
 import { Modal } from '@/app/components/modals/Modal'
 import { useRentModal } from '@/app/hooks/useRentModal'
@@ -48,6 +49,9 @@ export const RentModal = () => {
 
   const category = watch('category')
   const location = watch('location')
+  const questCount = watch('questCount')
+  const roomCount = watch('roomCount')
+  const bathroomCount = watch('bathroomCount')
 
   const Map = useMemo(
     () =>
@@ -66,7 +70,7 @@ export const RentModal = () => {
   }
 
   const onBack = (): void => {
-    setStep((value: STEPS) => step - 1)
+    setStep((value: STEPS) => value - 1)
   }
 
   const onNext = (): void => {
@@ -114,6 +118,37 @@ export const RentModal = () => {
           onChange={(value: CountrySelectValue) => setCustomValue('location', value)}
         />
         <Map center={location?.latlng} />
+      </div>
+    )
+  }
+
+  if (step === STEPS.INFO) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Share some basics about your place"
+          subtitle="What amenities do you have?"
+        />
+        <Counter
+          title="Guests"
+          subtitle="How many guests do you allow?"
+          value={questCount}
+          onChange={(value: number) => setCustomValue('questCount', value)}
+        />
+        <hr />
+        <Counter
+          title="Rooms"
+          subtitle="How many rooms do you have?"
+          value={roomCount}
+          onChange={(value: number) => setCustomValue('roomCount', value)}
+        />
+        <hr />
+        <Counter
+          title="Bathrooms"
+          subtitle="How many bathrooms do you have?"
+          value={bathroomCount}
+          onChange={(value: number) => setCustomValue('bathroomCount', value)}
+        />
       </div>
     )
   }
