@@ -43,7 +43,7 @@ export const RentModal = () => {
     defaultValues: {
       category: '',
       location: null,
-      questCount: 1,
+      guestCount: 1,
       roomCount: 1,
       bathroomCount: 1,
       imageSrc: '',
@@ -55,7 +55,7 @@ export const RentModal = () => {
 
   const category = watch('category')
   const location = watch('location')
-  const questCount = watch('questCount')
+  const guestCount = watch('guestCount')
   const roomCount = watch('roomCount')
   const bathroomCount = watch('bathroomCount')
   const imageSrc = watch('imageSrc')
@@ -84,7 +84,7 @@ export const RentModal = () => {
     setStep((value: STEPS) => value + 1)
   }
 
-  const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues): void => {
+  const onSubmit: SubmitHandler<FieldValues> = (data: FieldValues) => {
     if (step !== STEPS.PRICE) {
       return onNext()
     }
@@ -162,8 +162,8 @@ export const RentModal = () => {
         <Counter
           title="Guests"
           subtitle="How many guests do you allow?"
-          value={questCount}
-          onChange={(value: number) => setCustomValue('questCount', value)}
+          value={guestCount}
+          onChange={(value: number) => setCustomValue('guestCount', value)}
         />
         <hr />
         <Counter
