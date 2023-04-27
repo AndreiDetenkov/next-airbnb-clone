@@ -68,13 +68,10 @@ export const Modal: FC<ModalProps> = ({
 
   return (
     <>
-      <div className="fixed inset-0 flex items-center justify-center overflow-y-auto overflow-x-hidden bg-neutral-800/70 outline-none focus:outline-none">
-        <div className="relative mx-auto my-6 h-full w-full sm:h-auto sm:w-[560px]">
+      <div className=" fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden bg-neutral-800/70 outline-none focus:outline-none">
+        <div className=" relative mx-auto my-6 h-full w-full md:h-auto md:w-4/6 lg:h-auto lg:w-3/6 xl:w-2/5">
           <div
-            className={`
-              h-full
-              transition
-              duration-300
+            className={` translate h-full duration-300
               ${showModal ? 'translate-y-0' : 'translate-y-full'}
               ${showModal ? 'opacity-100' : 'opacity-0'}
             `}
