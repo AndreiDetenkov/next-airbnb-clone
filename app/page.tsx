@@ -4,14 +4,13 @@ import { ClientOnly } from '@/app/components/ClientOnly'
 import { Container } from '@/app/components/Container'
 import { EmptyState } from '@/app/components/EmptyState'
 import { ListingCard } from '@/app/components/listings/ListingCard'
-import { SafeUser } from '@/app/types'
-import { Listing } from '@prisma/client'
+import { SafeListing } from '@/app/types'
 
-export default async function Home(): Promise<JSX.Element> {
-  const listings: Listing[] | undefined = await getListings()
-  const currentUser: SafeUser | null = await getCurrentUser()
+export default async function Home() {
+  const listings = await getListings()
+  const currentUser = await getCurrentUser()
 
-  if (listings?.length === 0) {
+  if (!listings) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -23,9 +22,10 @@ export default async function Home(): Promise<JSX.Element> {
     <ClientOnly>
       <Container>
         <div className="grid grid-cols-1 gap-8 pt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-          {listings?.map((listing: Listing) => {
-            return <ListingCard key={listing.id} currentUser={currentUser} data={listing} />
-          })}
+          {listings &&
+            listings.map((listing: SafeListing) => {
+              return <ListingCard key={listing.id} currentUser={currentUser} data={listing} />
+            })}
         </div>
       </Container>
     </ClientOnly>
