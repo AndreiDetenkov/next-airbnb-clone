@@ -28,7 +28,7 @@ export const ListingHead: FC<ListingHeadProps> = ({
   return (
     <>
       <Heading title={title} subtitle={`${location?.region}, ${location?.label}`} />
-      <div className="relative h-[60vh] w-full overflow-hidden rounded-xl">
+      <div className="relative h-[50vh] w-full overflow-hidden rounded-xl">
         <Image src={imageSrc} alt="Image" fill className="w-full object-cover" />
         <div className="absolute right-5 top-5">
           <HeartButton listingId={id} currentUser={currentUser} />

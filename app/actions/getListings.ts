@@ -2,7 +2,7 @@ import prisma from '@/app/libs/prismadb'
 import { SafeListing } from '@/app/types'
 import { Listing } from '@prisma/client'
 
-export default async function getListings(): Promise<SafeListing[] | undefined> {
+export default async function getListings() {
   try {
     const listings: Listing[] = await prisma.listing.findMany({
       orderBy: {

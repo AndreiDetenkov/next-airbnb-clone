@@ -10,7 +10,7 @@ export type SafeUser = Omit<User, 'createdAt' | 'updatedAt' | 'emailVerified'> &
 }
 
 export interface Category {
-  label: string
   icon: IconType
+  label: string
   description: string
 }
