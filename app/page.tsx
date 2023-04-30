@@ -23,9 +23,9 @@ export default async function Home() {
       <Container>
         <div className="grid grid-cols-1 gap-8 pt-24 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
           {listings &&
-            listings.map((listing: SafeListing) => {
-              return <ListingCard key={listing.id} currentUser={currentUser} data={listing} />
-            })}
+            listings.map((listing: SafeListing) => (
+              <ListingCard key={listing.id} currentUser={currentUser} data={listing} />
+            ))}
         </div>
       </Container>
     </ClientOnly>
